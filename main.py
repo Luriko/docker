@@ -45,6 +45,7 @@ def get_all_cars():
 def create_car(item: Lease):
     cursor.execute(f"""INSERT INTO "public"."Car_Client"("car_id", "client_id") 
                     VALUES ('{item.Car_id}','{item.Client_id}');
+                    
                     UPDATE public."Cars"
                     SET "IsRented" = true
                     WHERE id = {item.Car_id}""")
